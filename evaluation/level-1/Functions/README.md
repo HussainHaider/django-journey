@@ -5,7 +5,7 @@ file name -> fibonacci.py
 Parameters are the inputs of a function while defining the function and arguments are the value that passes to a function when we're calling a function.
 
 For example:
-```
+``` python
 def example(a, b) # these are the parameters
     pass
 
@@ -20,7 +20,7 @@ keyword arguments use for two reason. One to pass the any number of arguments an
 
 For example:
 
-```
+``` python
 def f(a, b, *args): # we have to define the args in the last.
     pass
 ```
@@ -30,7 +30,7 @@ One option is explained above and the second option is to pass default value to 
 
 For example:
 
-```
+``` python
 def f(a, b=1,):
     pass
 ```
