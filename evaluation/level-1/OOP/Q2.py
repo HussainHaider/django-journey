@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import string
 
 
 class Box(ABC):
@@ -27,8 +28,8 @@ class ListBox(Box):
     def __init__(self):
         self.boxList = []
 
-    def add(self, name, value):
-        self.boxList.append(Item(name, value))
+    def add(self, items):
+        self.boxList.extend(items)
 
     def empty(self):
         self.boxList = []
@@ -39,13 +40,20 @@ class ListBox(Box):
 
 class DictBox(Box):
     def __init__(self):
-        self.dictList = {}
+        self.boxDict = {}
 
-    def add(self, name, value):
-        self.dictList[name] = Item(name, value)
+    def add(self, items):
+        self.boxDict.update(items)
 
     def empty(self):
-        self.dictList = {}
+        self.boxDict = {}
 
     def count(self):
-        return len(self.dictList)
+        return len(self.boxDict)
+
+
+box1 = ListBox()
+box1.add([Item(alphabet, i) for i, alphabet in enumerate(list(string.ascii_lowercase))])
+
+box2 = DictBox()
+box2.add(dict((alphabet, Item(alphabet, i)) for i, alphabet in enumerate(list(string.ascii_lowercase))))
